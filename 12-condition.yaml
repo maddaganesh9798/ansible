@@ -1,4 +1,4 @@
-- name:: check a number is less then or not
+- name: check a number is less then or not
   hosts: local
   connnection: local
   vars_prompt:
