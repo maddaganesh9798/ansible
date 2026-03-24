@@ -1,5 +1,5 @@
 - name: devops corse informationn
-  hosts: local
+  hosts: web
   vars:
     course: "DevOps with Aws"
     duration: 120
