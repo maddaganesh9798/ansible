@@ -1,0 +1,20 @@
+- name: devops corse informationn
+  hosts: local
+  vars:
+    course: "DevOps with Aws"
+    duration: 120
+    topics: 
+    - linux
+    - shell
+    - ansible
+    - Aws
+    - K8
+    live: true
+    tools: 
+      ci: jenkins
+      cm: ansible
+      cloud: Aws
+  tasks:
+  - name: print the course information    
+    ansible.bultin.debug:
+      msg: "hi , i am learning {{course}}, with duration: {{duration}}, topices  are: {{topics}}, and live: {{live}}, tools are: {{tools}}"
