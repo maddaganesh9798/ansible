@@ -1,4 +1,4 @@
-- name: check a number is less then 10 or not
+- name: 
   hosts: local
   connnection: local
   vars_prompt:
