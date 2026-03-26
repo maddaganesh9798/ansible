@@ -1,6 +1,6 @@
 
 - name: create ec2 and r53 recors
-  host: local
+  hosts: local
   connection: local
   vars:
     subnet_id: subnet-041a4a9b2ebc120c1
