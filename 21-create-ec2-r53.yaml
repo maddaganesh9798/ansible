@@ -22,18 +22,30 @@
     loop: "{{ instances }}"
     register: ec2_instance
     
-  - name: print the output
-    ansible.builtin.debug:
-      msg: "{{ ec2_instance}}"
-      
-  - name: create r53 modules
+  # - name: print the output
+  #   ansible.builtin.debug:
+  #     msg: "{{ ec2_instance}}"
+
+  # - name: create r53 modules
+  #   amazon.aws.route53:
+  #     state: present
+  #     zone: "{{ zone }}"
+  #     record: "{{ item.item }}.{{ zone }}"
+  #     type: A
+  #     ttl: 1
+  #     value: "{{ item.insance[0].private_ip_adress }}"
+  #     wait: true
+  #     overwride: true
+  #   loop: "{{ ec2_instance.results }}"
+
+  - name: create r53 private records
     amazon.aws.route53:
       state: present
       zone: "{{ zone }}"
-      record: "{{ item.item }}.{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}" #mysql.daws81s.online
       type: A
       ttl: 1
-      value: "{{ item.insance[0].private_ip_adress }}"
+      value: "{{ item.instances[0].private_ip_address }}"
       wait: true
-      overwride: true
-    loop: "{{ ec2_instance.results }}"
+      overwrite: true
+    loop: "{{ ec2_instances.results }}"
