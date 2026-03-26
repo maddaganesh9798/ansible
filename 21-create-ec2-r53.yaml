@@ -18,5 +18,5 @@
       instance_type: "t3.micro"
       security_group: "{{ sg-id }}"
       image_id: "{{ ami_id }}"
-    loop: "{{ instances}}"
+    loop: "{{ instances }}"
     regidter: ec2_instance
