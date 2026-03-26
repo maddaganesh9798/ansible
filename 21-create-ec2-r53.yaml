@@ -22,4 +22,4 @@
     register: ec2_instance
   - name: print the output
     ansible.builtin.debug:
-    msg: "{{ ec2_instance}}"
+      msg: "{{ ec2_instance}}"
